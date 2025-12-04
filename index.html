@@ -5,551 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pavithra P - ML Engineer Portfolio</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #000000;
-            color: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Galaxy background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(ellipse at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(75, 0, 130, 0.15) 0%, transparent 50%),
-                radial-gradient(2px 2px at 20% 30%, white, transparent),
-                radial-gradient(1px 1px at 80% 10%, white, transparent),
-                radial-gradient(1px 1px at 50% 50%, white, transparent);
-            background-size: 200% 200%, 200% 200%, 300% 300%, 500% 500%, 700% 700%;
-            z-index: -1;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-        }
-
-        nav a {
-            color: #2d2d2d;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        nav a:hover {
-            color: #8a2be2;
-        }
-
-        /* Sections */
-        section {
-            min-height: 100vh;
-            padding: 6rem 4rem 4rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* HOME SECTION */
-        #home {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 4rem;
-            padding: 8rem 6rem 4rem;
-            background: #f5f5f5;
-            position: relative;
-        }
-
-        .home-left {
-            flex: 1;
-            max-width: 600px;
-        }
-
-        .home-left h1 {
-            font-size: 3.5rem;
-            font-weight: 400;
-            color: #8a2be2;
-            margin-bottom: 2rem;
-            letter-spacing: 0;
-            line-height: 1.2;
-        }
-
-        .home-left p {
-            font-size: 1.4rem;
-            color: #2d2d2d;
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            font-weight: 400;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-        }
-
-        .social-icon {
-            width: 55px;
-            height: 55px;
-            background: #ffffff;
-            border: 2px solid #8a2be2;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 26px;
-            transition: all 0.3s;
-            box-shadow: 0 2px 10px rgba(138, 43, 226, 0.3);
-        }
-
-        .social-icon:hover {
-            background: #8a2be2;
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.6);
-        }
-
-        .home-right {
-            flex-shrink: 0;
-        }
-
-        .profile-photo {
-            width: 450px;
-            height: 550px;
-            border-radius: 20px;
-            border: 3px solid #8a2be2;
-            object-fit: cover;
-            box-shadow: 0 10px 40px rgba(138, 43, 226, 0.3);
-            background: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            text-align: center;
-            padding: 2rem;
-            color: #8a2be2;
-        }
-
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-
-        /* ABOUT SECTION */
-        #about {
-            background: #f5f5f5;
-            color: #2d2d2d;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            color: #8a2be2;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .education-box {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .education-box h3 {
-            color: #8a2be2;
-            margin-bottom: 1rem;
-        }
-
-        .education-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .resume-section {
-            margin-top: 3rem;
-            text-align: center;
-        }
-
-        .resume-viewer {
-            width: 100%;
-            height: 600px;
-            background: #ffffff;
-            border: 2px solid #e0e0e0;
-            border-radius: 15px;
-            margin: 2rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #8a2be2;
-            font-size: 1.2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #8a2be2, #4b0082);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.5);
-        }
-
-        /* PROJECTS SECTION */
-        #projects {
-            background: #f5f5f5;
-            color: #2d2d2d;
-        }
-
-        .project-card {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s;
-        }
-
-        .project-card:hover {
-            box-shadow: 0 5px 25px rgba(138, 43, 226, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .project-card h3 {
-            color: #8a2be2;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-screenshots {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-            margin: 2rem 0;
-            border-radius: 15px;
-            background: #f0f0f0;
-        }
-
-        .screenshot-slider {
-            display: flex;
-            transition: transform 0.5s ease;
-            height: 100%;
-        }
-
-        .screenshot-slot {
-            min-width: 100%;
-            height: 100%;
-            background: #f0f0f0;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #8a2be2;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .screenshot-slot img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 10px;
-        }
-
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(138, 43, 226, 0.8);
-            border: none;
-            color: white;
-            padding: 1rem;
-            cursor: pointer;
-            font-size: 1.5rem;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            z-index: 10;
-        }
-
-        .slider-btn:hover {
-            background: rgba(138, 43, 226, 1);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .slider-btn.prev {
-            left: 1rem;
-        }
-
-        .slider-btn.next {
-            right: 1rem;
-        }
-
-        .slider-dots {
-            position: absolute;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            background: rgba(138, 43, 226, 0.4);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .dot.active {
-            background: #8a2be2;
-            width: 30px;
-            border-radius: 5px;
-        }
-
-        .project-description {
-            margin: 1.5rem 0;
-            line-height: 1.8;
-        }
-
-        .skills-used {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1rem;
-        }
-
-        .skill-badge {
-            background: #e8d4f8;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            border: 1px solid #8a2be2;
-            font-size: 0.9rem;
-            color: #2d2d2d;
-        }
-
-        /* CERTIFICATES SECTION */
-        .certificates-section {
-            margin-top: 4rem;
-        }
-
-        .certificates-section h3 {
-            color: #8a2be2;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .certificates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .certificate-slot {
-            background: #ffffff;
-            border: 2px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 2rem;
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #8a2be2;
-            transition: all 0.3s;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .certificate-slot:hover {
-            border-color: #8a2be2;
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.15);
-        }
-
-        .certificate-slot img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        /* CONTACT SECTION */
-        #contact {
-            text-align: center;
-            background: #f5f5f5;
-            padding: 4rem;
-            color: #2d2d2d;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-icon-link {
-            width: 70px;
-            height: 70px;
-            background: #2d2d2d;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 32px;
-            transition: all 0.3s;
-            position: relative;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-icon-link:hover {
-            background: #8a2be2;
-            transform: translateY(-10px) rotate(360deg);
-            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
-        }
-
-        .contact-icon-link::after {
-            content: attr(data-label);
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.9rem;
-            color: #8a2be2;
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .contact-icon-link:hover::after {
-            opacity: 1;
-        }
-
-        /* Admin Button */
-        .admin-btn {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #8a2be2, #4b0082);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 24px;
-            z-index: 1000;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(138, 43, 226, 0.5);
-        }
-
-        .admin-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            #home {
-                flex-direction: column;
-                text-align: center;
-                align-items: center;
-            }
-            
-            .home-left h1 {
-                font-size: 2.5rem;
-            }
-
-            .home-left {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .profile-photo {
-                margin: 0 auto;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            section {
-                padding: 4rem 2rem 2rem;
-            }
-        }
-
-        /* Edit mode */
-        [contenteditable="true"] {
-            outline: 2px dashed #8a2be2;
-            padding: 0.5rem;
-            border-radius: 4px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #000; color: #fff; line-height: 1.6; overflow-x: hidden; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(75, 0, 130, 0.15) 0%, transparent 50%), radial-gradient(2px 2px at 20% 30%, white, transparent), radial-gradient(1px 1px at 80% 10%, white, transparent); background-size: 200% 200%, 200% 200%, 300% 300%, 500% 500%; z-index: -1; }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 1rem 2rem; z-index: 1000; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 3rem; }
+        nav a { color: #2d2d2d; text-decoration: none; font-weight: 500; transition: all 0.3s; }
+        nav a:hover { color: #8a2be2; }
+        section { min-height: 100vh; padding: 6rem 4rem 4rem; max-width: 1400px; margin: 0 auto; }
+        #home { display: flex; justify-content: space-between; align-items: flex-start; gap: 4rem; padding: 8rem 6rem 4rem; background: #f5f5f5; }
+        .home-left { flex: 1; max-width: 600px; }
+        .home-left h1 { font-size: 3.5rem; font-weight: 400; color: #8a2be2; margin-bottom: 2rem; line-height: 1.2; }
+        .home-left p { font-size: 1.4rem; color: #2d2d2d; margin-bottom: 2.5rem; line-height: 1.8; }
+        .social-links { display: flex; gap: 1.5rem; margin-top: 2.5rem; }
+        .social-icon { width: 55px; height: 55px; background: #fff; border: 2px solid #8a2be2; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 26px; transition: all 0.3s; box-shadow: 0 2px 10px rgba(138, 43, 226, 0.3); }
+        .social-icon:hover { background: #8a2be2; transform: translateY(-5px); box-shadow: 0 5px 20px rgba(138, 43, 226, 0.6); }
+        .profile-photo { width: 450px; height: 550px; border-radius: 20px; border: 3px solid #8a2be2; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; text-align: center; padding: 2rem; color: #8a2be2; overflow: hidden; box-shadow: 0 10px 40px rgba(138, 43, 226, 0.3); }
+        .profile-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 17px; }
+        #about, #projects { background: #f5f5f5; color: #2d2d2d; }
+        h2 { font-size: 2.5rem; color: #8a2be2; margin-bottom: 3rem; text-align: center; }
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .about-text p { margin-bottom: 1.5rem; line-height: 1.8; }
+        .education-box { background: #fff; border: 1px solid #e0e0e0; border-radius: 15px; padding: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .education-box h3 { color: #8a2be2; margin-bottom: 1rem; }
+        .resume-section { margin-top: 3rem; text-align: center; }
+        .resume-viewer { width: 100%; height: 600px; background: #fff; border: 2px solid #e0e0e0; border-radius: 15px; margin: 2rem 0; display: flex; align-items: center; justify-content: center; color: #8a2be2; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .resume-viewer iframe { width: 100%; height: 100%; border: none; }
+        .btn { padding: 1rem 2.5rem; background: linear-gradient(135deg, #8a2be2, #4b0082); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.3s; border: none; cursor: pointer; display: inline-block; margin-top: 1rem; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(138, 43, 226, 0.5); }
+        .project-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 20px; padding: 2rem; margin-bottom: 3rem; box-shadow: 0 2px 15px rgba(0,0,0,0.08); transition: all 0.3s; }
+        .project-card:hover { box-shadow: 0 5px 25px rgba(138, 43, 226, 0.15); transform: translateY(-5px); }
+        .project-card h3 { color: #8a2be2; font-size: 2rem; margin-bottom: 1.5rem; }
+        .project-screenshots { position: relative; width: 100%; height: 400px; overflow: hidden; margin: 2rem 0; border-radius: 15px; background: #f0f0f0; }
+        .screenshot-slider { display: flex; transition: transform 0.5s ease; height: 100%; }
+        .screenshot-slot { min-width: 100%; height: 100%; background: #f0f0f0; border: 2px solid #e0e0e0; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #8a2be2; font-size: 0.9rem; text-align: center; padding: 2rem; }
+        .screenshot-slot img { width: 100%; height: 100%; object-fit: contain; border-radius: 10px; }
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(138, 43, 226, 0.8); border: none; color: white; padding: 1rem; cursor: pointer; font-size: 1.5rem; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; z-index: 10; }
+        .slider-btn:hover { background: rgba(138, 43, 226, 1); }
+        .slider-btn.prev { left: 1rem; }
+        .slider-btn.next { right: 1rem; }
+        .slider-dots { position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem; z-index: 10; }
+        .dot { width: 10px; height: 10px; background: rgba(138, 43, 226, 0.4); border-radius: 50%; cursor: pointer; transition: all 0.3s; }
+        .dot.active { background: #8a2be2; width: 30px; border-radius: 5px; }
+        .skills-used { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem; }
+        .skill-badge { background: #e8d4f8; padding: 0.5rem 1rem; border-radius: 20px; border: 1px solid #8a2be2; font-size: 0.9rem; color: #2d2d2d; }
+        .certificates-section { margin-top: 4rem; }
+        .certificates-section h3 { color: #8a2be2; font-size: 2rem; margin-bottom: 2rem; text-align: center; }
+        .certificates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .certificate-slot { background: #fff; border: 2px solid #e0e0e0; border-radius: 15px; padding: 2rem; height: 250px; display: flex; align-items: center; justify-content: center; text-align: center; color: #8a2be2; transition: all 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.05); overflow: hidden; }
+        .certificate-slot:hover { border-color: #8a2be2; transform: translateY(-5px); box-shadow: 0 5px 20px rgba(138, 43, 226, 0.15); }
+        .certificate-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+        #contact { text-align: center; background: #f5f5f5; padding: 4rem; color: #2d2d2d; }
+        .contact-info { display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; flex-wrap: wrap; }
+        .contact-icon-link { width: 70px; height: 70px; background: #2d2d2d; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 32px; transition: all 0.3s; position: relative; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .contact-icon-link:hover { background: #8a2be2; transform: translateY(-10px) rotate(360deg); box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4); }
+        .admin-btn { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: linear-gradient(135deg, #8a2be2, #4b0082); border: none; border-radius: 50%; cursor: pointer; font-size: 24px; z-index: 1000; transition: all 0.3s; box-shadow: 0 4px 20px rgba(138, 43, 226, 0.5); color: white; }
+        .admin-btn:hover { transform: scale(1.1); }
+        @media (max-width: 768px) { #home { flex-direction: column; text-align: center; align-items: center; } .home-left h1 { font-size: 2.5rem; } .profile-photo { width: 300px; height: 400px; } .about-content { grid-template-columns: 1fr; } section { padding: 4rem 2rem 2rem; } }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
@@ -559,128 +74,74 @@
         </ul>
     </nav>
 
-    <!-- HOME SECTION -->
     <section id="home">
         <div class="home-left">
-            <h1 contenteditable="false" id="myName">Pavithra P</h1>
-            <p contenteditable="false" id="myTitle">Aspiring Data Engineer | Skilled in SQL, Python, Azure | ETL, Data Modeling & Analytics Enthusiast | ML Engineer | Data Science</p>
-            
-            <!-- Social Links -->
+            <h1>Pavithra P</h1>
+            <p>Aspiring Data Engineer | Skilled in SQL, Python, Azure | ETL, Data Modeling & Analytics Enthusiast | ML Engineer | Data Science</p>
             <div class="social-links">
-                <!-- 📝 INSTRUCTION: Replace # with your actual links -->
-                <a href="https://github.com/Pavithracodes" class="social-icon" target="_blank" title="GitHub">
-                    <span>💻</span>
-                </a>
-                <a href="https://www.linkedin.com/in/pavithra-p-36431b244/" class="social-icon" target="_blank" title="LinkedIn">
-                    <span>💼</span>
-                </a>
-                <a href="mailto:pavithrap1176@gmail.com" class="social-icon" title="Email">
-                    <span>📧</span>
-                </a>
+                <a href="https://github.com/Pavithracodes" class="social-icon" target="_blank">💻</a>
+                <a href="https://www.linkedin.com/in/pavithra-p-36431b244/" class="social-icon" target="_blank">💼</a>
+                <a href="mailto:pavithrap1176@gmail.com" class="social-icon">📧</a>
             </div>
         </div>
-        
         <div class="home-right">
-            <!-- 📝 INSTRUCTION: Add your photo URL in the src attribute below -->
-            <div class="profile-photo" id="profilePhoto">
-                📷<br>Add Your Photo Here<br>
-                <small style="font-size: 0.8rem; margin-top: 1rem; display: block;">
-                (Admin mode: Click gear icon → Edit photo URL)
-                </small>
+            <!-- 🖼️ TO ADD PHOTO: Replace YOUR_PHOTO_URL_HERE with your image URL -->
+            <div class="profile-photo" data-img="images/profile.jpeg">
+                📷 Add Your Photo<br><small>Edit data-img attribute</small>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section id="about">
         <h2>About Me</h2>
-        
         <div class="about-content">
             <div class="about-text">
-                <p contenteditable="false" id="aboutText">
-                    I'm a passionate ML Engineer with expertise in building end-to-end machine learning solutions. 
-                    I specialize in predictive analytics, customer value optimization, and creating data-driven 
-                    applications that deliver measurable business impact.
-                </p>
-                
-                <!-- 📝 INSTRUCTION: Edit your bio text above in admin mode -->
+                <p>I'm a passionate ML Engineer with expertise in building end-to-end machine learning solutions. I specialize in predictive analytics, customer value optimization, and creating data-driven applications that deliver measurable business impact.</p>
             </div>
-            
             <div class="education-box">
                 <h3>🎓 Education</h3>
-                <!-- 📝 INSTRUCTION: Add your education details below -->
-                <div class="education-item" contenteditable="false" id="education1">
-                    <strong>Bachelor's in Engineering</strong><br>
-                    University Name<br>
-                    2016 - 2020
+                <div class="education-item">
+                    <strong>B.E in Electronics & Communication Engineering</strong><br>Dr.TTIT<br>
                 </div>
             </div>
         </div>
-        
-        <!-- Resume Section -->
         <div class="resume-section">
-            <h3 style="color: #da70d6; margin-bottom: 2rem;">📄 My Resume</h3>
-            
-            <!-- 📝 INSTRUCTION: Replace the iframe src with your resume PDF link -->
-            <!-- Option 1: Google Drive link (Make sure sharing is set to "Anyone with the link") -->
-            <!-- Option 2: Upload to GitHub and use raw link -->
-            <div class="resume-viewer" id="resumeViewer">
-                <p>📄 Resume Preview<br><br>
-                <small>In admin mode, add your resume PDF URL</small></p>
+            <h3 style="color: #8a2be2; margin-bottom: 2rem;">📄 My Resume</h3>
+            <!-- 🖼️ TO ADD RESUME: Replace YOUR_RESUME_PDF_URL with your PDF URL -->
+            <div class="resume-viewer" data-resume="images/Pavithra_Resume.pdf">
+                📄 Resume Preview<br><small>Edit data-resume attribute</small>
             </div>
-            
-            <!-- 📝 INSTRUCTION: Update the download link below with your resume file -->
-            <a href="your-resume.pdf" class="btn" download>📥 Get Resume</a>
+            <a href="#" class="btn" id="downloadBtn">📥 Get Resume</a>
         </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
     <section id="projects">
         <h2>Featured Projects</h2>
         
-        <!-- PROJECT 1 -->
         <div class="project-card">
-            <h3 contenteditable="false" id="project1Title">Customer Value ML Platform</h3>
-            
-            <!-- 📝 INSTRUCTION: Add screenshot URLs in admin mode -->
+            <h3>Customer Value ML Platform</h3>
             <div class="project-screenshots" id="project1Slider">
-                <button class="slider-btn prev" onclick="changeSlide('project1Slider', -1)">❮</button>
-                <button class="slider-btn next" onclick="changeSlide('project1Slider', 1)">❯</button>
-                
+                <button class="slider-btn prev" onclick="changeSlide('project1Slider',-1)">❮</button>
+                <button class="slider-btn next" onclick="changeSlide('project1Slider',1)">❯</button>
                 <div class="screenshot-slider">
-                    <div class="screenshot-slot" data-screenshot="1">
-                        Screenshot 1<br>Click gear icon to add
-                    </div>
-                    <div class="screenshot-slot" data-screenshot="2">
-                        Screenshot 2
-                    </div>
-                    <div class="screenshot-slot" data-screenshot="3">
-                        Screenshot 3
-                    </div>
-                    <div class="screenshot-slot" data-screenshot="4">
-                        Screenshot 4
-                    </div>
-                    <div class="screenshot-slot" data-screenshot="5">
-                        Screenshot 5
-                    </div>
+                    <!-- 🖼️ TO ADD SCREENSHOTS: Replace empty data-img with your image URLs -->
+                    <div class="screenshot-slot" data-img="images/project1-1.jpeg">Screenshot 1</div>
+                    <div class="screenshot-slot" data-img="images/project1-2.jpeg">Screenshot 2</div>
+                    <div class="screenshot-slot" data-img="images/project1-3.jpeg">Screenshot 3</div>
+                    <div class="screenshot-slot" data-img="images/project1-4.jpeg">Screenshot 4</div>
+                    <div class="screenshot-slot" data-img="images/project1-5.jpeg">Screenshot 5</div>
                 </div>
-                
                 <div class="slider-dots">
-                    <span class="dot active" onclick="goToSlide('project1Slider', 0)"></span>
-                    <span class="dot" onclick="goToSlide('project1Slider', 1)"></span>
-                    <span class="dot" onclick="goToSlide('project1Slider', 2)"></span>
-                    <span class="dot" onclick="goToSlide('project1Slider', 3)"></span>
-                    <span class="dot" onclick="goToSlide('project1Slider', 4)"></span>
+                    <span class="dot active" onclick="goToSlide('project1Slider',0)"></span>
+                    <span class="dot" onclick="goToSlide('project1Slider',1)"></span>
+                    <span class="dot" onclick="goToSlide('project1Slider',2)"></span>
+                    <span class="dot" onclick="goToSlide('project1Slider',3)"></span>
+                    <span class="dot" onclick="goToSlide('project1Slider',4)"></span>
                 </div>
             </div>
-            
-            <div class="project-description" contenteditable="false" id="project1Desc">
-                End-to-end machine learning platform that predicts customer lifetime value and generates 
-                personalized offers for payment networks. Achieved 87% prediction accuracy using Random Forest, 
-                K-Means, and XGBoost models.
+            <div class="project-description">
+                End-to-end machine learning platform that predicts customer lifetime value and generates personalized offers for payment networks. Achieved 87% prediction accuracy using Random Forest, K-Means, and XGBoost models.
             </div>
-            
-            <!-- 📝 INSTRUCTION: Edit skills in admin mode -->
             <div class="skills-used">
                 <span class="skill-badge">Python</span>
                 <span class="skill-badge">FastAPI</span>
@@ -691,298 +152,116 @@
             </div>
         </div>
 
-        <!-- PROJECT 2 - Duplicate this structure for more projects -->
         <div class="project-card">
-            <h3 contenteditable="false" id="project2Title">AI-Powered Oil Condition Monitoring System</h3>
-            
+            <h3>AI-Powered Oil Condition Monitoring System</h3>
             <div class="project-screenshots" id="project2Slider">
-                <button class="slider-btn prev" onclick="changeSlide('project2Slider', -1)">❮</button>
-                <button class="slider-btn next" onclick="changeSlide('project2Slider', 1)">❯</button>
-                
+                <button class="slider-btn prev" onclick="changeSlide('project2Slider',-1)">❮</button>
+                <button class="slider-btn next" onclick="changeSlide('project2Slider',1)">❯</button>
                 <div class="screenshot-slider">
-                    <div class="screenshot-slot" data-screenshot="1">
-                        Screenshot 1
-                    </div>
-                    <div class="screenshot-slot" data-screenshot="2">
-                        Screenshot 2
-                    </div>
-                    <div class="screenshot-slot" data-screenshot="3">
-                        Screenshot 3
-                    </div>
-                    <div class="screenshot-slot" data-screenshot="4">
-                        Screenshot 4
-                    </div>
-                    <div class="screenshot-slot" data-screenshot="5">
-                        Screenshot 5
-                    </div>
+                    <div class="screenshot-slot" data-img="images/project2-1.jpeg">Screenshot 1</div>
+                    <div class="screenshot-slot" data-img="images/project2-2.jpeg">Screenshot 2</div>
+                    <div class="screenshot-slot" data-img="images/project2-3.jpeg">Screenshot 3</div>
+                    <div class="screenshot-slot" data-img="images/project2-4.png">Screenshot 4</div>
+                    <div class="screenshot-slot" data-img="images/project2-5.png">Screenshot 5</div>
                 </div>
-                
                 <div class="slider-dots">
-                    <span class="dot active" onclick="goToSlide('project2Slider', 0)"></span>
-                    <span class="dot" onclick="goToSlide('project2Slider', 1)"></span>
-                    <span class="dot" onclick="goToSlide('project2Slider', 2)"></span>
-                    <span class="dot" onclick="goToSlide('project2Slider', 3)"></span>
-                    <span class="dot" onclick="goToSlide('project2Slider', 4)"></span>
+                    <span class="dot active" onclick="goToSlide('project2Slider',0)"></span>
+                    <span class="dot" onclick="goToSlide('project2Slider',1)"></span>
+                    <span class="dot" onclick="goToSlide('project2Slider',2)"></span>
+                    <span class="dot" onclick="goToSlide('project2Slider',3)"></span>
+                    <span class="dot" onclick="goToSlide('project2Slider',4)"></span>
                 </div>
             </div>
-            
-            <div class="project-description" contenteditable="false" id="project2Desc">
-                This project simulates live sensor data (oil viscosity, temperature, and level) from trucks and stores
-                it in a Supabase (PostgreSQL) database. A Streamlit dashboard visualizes these readings in real-time and 
-                triggers Telegram alerts when thresholds are crossed. The system demonstrates a modern data engineering 
-                workflow — from data generation → storage → transformation → visualization → ML-based prediction.
+            <div class="project-description">
+                Simulates live sensor data from trucks and stores it in Supabase (PostgreSQL) database. A Streamlit dashboard visualizes readings in real-time and triggers Telegram alerts when thresholds are crossed.
             </div>
-            </div>
-            
             <div class="skills-used">
                 <span class="skill-badge">Python</span>
-                <span class="skill-badge">Supabase(PostgreSQL)</span>
-                <span class="skill-badge">Telegram Bot API</span>
+                <span class="skill-badge">Supabase</span>
+                <span class="skill-badge">Telegram Bot</span>
                 <span class="skill-badge">Streamlit</span>
-                <span class="skill-badge">Matplotlib</span>
                 <span class="skill-badge">Scikit-learn</span>
-                <span class="skill-badge">ETL</span>
             </div>
         </div>
 
-        <!-- CERTIFICATES SECTION -->
         <div class="certificates-section">
             <h3>🏆 Certifications</h3>
-            
-            <!-- 📝 INSTRUCTION: Add certificate image URLs in admin mode -->
             <div class="certificates-grid">
-                <div class="certificate-slot" id="cert1">
-                    Certificate 1<br>
-                    <small>Add image in admin mode</small>
-                </div>
-                <div class="certificate-slot" id="cert2">
-                    Certificate 2
-                </div>
-                <div class="certificate-slot" id="cert3">
-                    Certificate 3
-                </div>
-                <div class="certificate-slot" id="cert4">
-                    Certificate 4
-                </div>
-                <div class="certificate-slot" id="cert5">
-                    Certificate 5
-                </div>
+                <!-- 🖼️ TO ADD CERTIFICATES: Replace empty data-img with your certificate image URLs -->
+                <div class="certificate-slot" data-img="images/certificate1.jpeg">Certificate 1</div>
+                <div class="certificate-slot" data-img="images/certificate2.jpeg">Certificate 2</div>
+                <div class="certificate-slot" data-img="images/certificate3.jpeg">Certificate 3</div>
+                <div class="certificate-slot" data-img="images/certificate4.jpeg">Certificate 4</div>
+                <div class="certificate-slot" data-img="images/certificate5.png">Certificate 5</div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <section id="contact">
         <h2>Get In Touch</h2>
-        <p style="max-width: 600px; margin: 0 auto 2rem;">
-            I'm always open to discussing new projects, creative ideas, or opportunities.
-        </p>
-        
+        <p style="max-width: 600px; margin: 0 auto 2rem;">I'm always open to discussing new projects, creative ideas, or opportunities.</p>
         <div class="contact-info">
-            <!-- 📝 INSTRUCTION: Update these links with your actual contact info -->
-            <a href="mailto:pavithrap1176@gmail.com" class="contact-icon-link" data-label="Email" target="_blank">
-                📧
-            </a>
-            <a href="tel:+918660916908" class="contact-icon-link" data-label="Phone" target="_blank">
-                📱
-            </a>
-            <a href="https://www.linkedin.com/in/pavithra-p-36431b244/" class="contact-icon-link" data-label="LinkedIn" target="_blank">
-                💼
-            </a>
-            <a href="https://github.com/Pavithracodes" class="contact-icon-link" data-label="GitHub" target="_blank">
-                💻
-            </a>
-            <a href="https://maps.app.goo.gl/59j6xj16PYCeR3Hj7" class="contact-icon-link" data-label="Location" target="_blank">
-                📍
-            </a>
+            <a href="mailto:pavithrap1176@gmail.com" class="contact-icon-link" target="_blank">📧</a>
+            <a href="tel:+918660916908" class="contact-icon-link" target="_blank">📱</a>
+            <a href="https://www.linkedin.com/in/pavithra-p-36431b244/" class="contact-icon-link" target="_blank">💼</a>
+            <a href="https://github.com/Pavithracodes" class="contact-icon-link" target="_blank">💻</a>
+            <a href="https://maps.app.goo.gl/59j6xj16PYCeR3Hj7" class="contact-icon-link" target="_blank">📍</a>
         </div>
     </section>
 
-    <!-- Admin Button -->
-    <button class="admin-btn" onclick="showAdminLogin()">⚙️</button>
+    <button class="admin-btn" onclick="alert('📝 TO ADD IMAGES:\\n\\n1. Right-click → Inspect Element\\n2. Find elements with data-img=\\\"\\\"\\n3. Add your image URL: data-img=\\\"https://your-url.jpg\\\"\\n4. Save the HTML file\\n\\nExample:\\n<div data-img=\\\"https://i.imgur.com/abc123.jpg\\\">\\n\\nTip: Use image hosting like Imgur, Google Drive, or GitHub')">⚙️</button>
 
     <script>
-        const ADMIN_PASSWORD = "MyPor85liyo#$!99"; // 📝 Change this!
-        let currentSlides = {};
+        let currentSlides = { project1Slider: 0, project2Slider: 0 };
 
-        // Initialize sliders
-        document.querySelectorAll('.project-screenshots').forEach(slider => {
-            currentSlides[slider.id] = 0;
-        });
-
-        function changeSlide(sliderId, direction) {
-            const slider = document.getElementById(sliderId);
-            const slides = slider.querySelectorAll('.screenshot-slot');
-            const dots = slider.querySelectorAll('.dot');
-            
-            currentSlides[sliderId] += direction;
-            
-            if (currentSlides[sliderId] >= slides.length) {
-                currentSlides[sliderId] = 0;
-            }
-            if (currentSlides[sliderId] < 0) {
-                currentSlides[sliderId] = slides.length - 1;
-            }
-            
-            updateSlider(sliderId);
-        }
-
-        function goToSlide(sliderId, index) {
-            currentSlides[sliderId] = index;
-            updateSlider(sliderId);
-        }
-
-        function updateSlider(sliderId) {
-            const slider = document.getElementById(sliderId);
-            const slideContainer = slider.querySelector('.screenshot-slider');
-            const dots = slider.querySelectorAll('.dot');
-            
-            slideContainer.style.transform = `translateX(-${currentSlides[sliderId] * 100}%)`;
-            
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlides[sliderId]);
+        function loadImages() {
+            document.querySelectorAll('[data-img]').forEach(el => {
+                const url = el.getAttribute('data-img');
+                if (url && url.trim()) {
+                    if (el.classList.contains('resume-viewer')) {
+                        el.innerHTML = `<iframe src="${url}"></iframe>`;
+                        document.getElementById('downloadBtn').href = url;
+                    } else {
+                        el.innerHTML = `<img src="${url}" alt="Image">`;
+                    }
+                }
+            });
+            document.querySelectorAll('[data-resume]').forEach(el => {
+                const url = el.getAttribute('data-resume');
+                if (url && url.trim()) {
+                    el.innerHTML = `<iframe src="${url}"></iframe>`;
+                    document.getElementById('downloadBtn').href = url;
+                }
             });
         }
 
-        // Auto-slide every 5 seconds
-        setInterval(() => {
-            Object.keys(currentSlides).forEach(sliderId => {
-                changeSlide(sliderId, 1);
-            });
-        }, 5000);
-
-        function showAdminLogin() {
-            const password = prompt("Enter admin password:");
-            if (password === ADMIN_PASSWORD) {
-                enableEditMode();
-            } else if (password) {
-                alert("❌ Incorrect password!");
-            }
-        }
-
-        function enableEditMode() {
-            alert("✅ Admin mode activated!\n\n" +
-                  "📝 Instructions:\n" +
-                  "1. Click on any text to edit\n" +
-                  "2. Use the functions below to add images\n" +
-                  "3. Click Save button when done\n\n" +
-                  "To add images:\n" +
-                  "- Profile photo: addProfilePhoto()\n" +
-                  "- Project screenshots: addProjectScreenshot('project1Screenshot1', 'url')\n" +
-                  "- Certificates: addCertificate('cert1', 'url')\n" +
-                  "- Resume: addResume('url')"
-            );
-
-            // Enable editing
-            document.querySelectorAll('[contenteditable="false"]').forEach(el => {
-                el.contentEditable = true;
-            });
-
-            // Add save button
-            const saveBtn = document.createElement('button');
-            saveBtn.className = 'admin-btn';
-            saveBtn.innerHTML = '💾';
-            saveBtn.style.bottom = '100px';
-            saveBtn.onclick = saveChanges;
-            saveBtn.title = 'Save Changes';
-            document.body.appendChild(saveBtn);
-
-            // Show console helper
-            console.log(`
-🎨 Admin Mode Helper Functions:
-
-1. Add Profile Photo:
-   addProfilePhoto('https://your-image-url.jpg')
-
-2. Add Project Screenshot:
-   addProjectScreenshot('project1Slider', 1, 'https://screenshot-url.jpg')
-   // screenshotNumber: 1, 2, 3, or 4
-   
-3. Add Certificate:
-   addCertificate('cert1', 'https://certificate-url.jpg')
-   
-4. Add Resume:
-   addResume('https://your-resume-pdf-url.pdf')
-
-5. Add Social Links:
-   Update the href attributes in the HTML for GitHub, LinkedIn, Email
-            `);
-        }
-
-        // Helper functions
-        function addProfilePhoto(url) {
-            const photo = document.getElementById('profilePhoto');
-            photo.innerHTML = `<img src="${url}" alt="Profile Photo">`;
-        }
-
-        function addProjectScreenshot(projectId, screenshotNumber, url) {
-            const slider = document.getElementById(projectId);
+        function changeSlide(id, dir) {
+            const slider = document.getElementById(id);
             const slots = slider.querySelectorAll('.screenshot-slot');
-            const targetSlot = Array.from(slots).find(slot => 
-                slot.getAttribute('data-screenshot') == screenshotNumber
-            );
-            if (targetSlot) {
-                targetSlot.innerHTML = `<img src="${url}" alt="Screenshot ${screenshotNumber}">`;
-            }
+            const dots = slider.querySelectorAll('.dot');
+            currentSlides[id] = (currentSlides[id] + dir + slots.length) % slots.length;
+            slider.querySelector('.screenshot-slider').style.transform = `translateX(-${currentSlides[id] * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentSlides[id]));
         }
 
-        function addCertificate(elementId, url) {
-            const slot = document.getElementById(elementId);
-            slot.innerHTML = `<img src="${url}" alt="Certificate">`;
+        function goToSlide(id, idx) {
+            const slider = document.getElementById(id);
+            const dots = slider.querySelectorAll('.dot');
+            currentSlides[id] = idx;
+            slider.querySelector('.screenshot-slider').style.transform = `translateX(-${idx * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
         }
 
-        function addResume(url) {
-            const viewer = document.getElementById('resumeViewer');
-            viewer.innerHTML = `<iframe src="${url}" width="100%" height="100%" style="border: none; border-radius: 15px;"></iframe>`;
-            
-            // Update download button
-            const downloadBtn = document.querySelector('a[download]');
-            downloadBtn.href = url;
-        }
-
-        function saveChanges() {
-            const content = {
-                name: document.getElementById('myName').textContent,
-                title: document.getElementById('myTitle').textContent,
-                about: document.getElementById('aboutText').textContent,
-                education1: document.getElementById('education1').innerHTML,
-                profilePhoto: document.getElementById('profilePhoto').innerHTML,
-                resumeViewer: document.getElementById('resumeViewer').innerHTML
-            };
-            
-            localStorage.setItem('portfolioData', JSON.stringify(content));
-            alert('✅ Changes saved!');
-        }
-
-        function loadSavedContent() {
-            const saved = localStorage.getItem('portfolioData');
-            if (saved) {
-                const content = JSON.parse(saved);
-                document.getElementById('myName').textContent = content.name;
-                document.getElementById('myTitle').textContent = content.title;
-                document.getElementById('aboutText').textContent = content.about;
-                document.getElementById('education1').innerHTML = content.education1;
-                document.getElementById('profilePhoto').innerHTML = content.profilePhoto;
-                document.getElementById('resumeViewer').innerHTML = content.resumeViewer;
-            }
-        }
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        setInterval(() => Object.keys(currentSlides).forEach(id => changeSlide(id, 1)), 5000);
+        
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
 
-        // Load saved content on page load
-        loadSavedContent();
+        loadImages();
     </script>
 </body>
 </html>
-
-
-
-
